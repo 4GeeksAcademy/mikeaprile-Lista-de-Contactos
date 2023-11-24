@@ -1,19 +1,30 @@
-import React from "react";
+import React , { useContext} from "react";
 import "../../styles/index.css";
+import { Link } from "react-router-dom";
+import { Context } from "../store/appContext.js";
 
-export const Home = () => (
-	<div className="text-center mt-5 bg-light">
-		<div className="card m-3 bg-white">
+
+export const Home = () => {
+	const { store, action } = useContext(Context)
+	return (
+	<>
+	 
+	<Link to="/create-contact">
+    <button className="btn btn-success">Add New Contact</button>
+	</Link>
+	 <div className="text-center mt-3 ">
+		<div className="card mx-5">
   			<div className="row g-0">
     			<div className="col-md-4">
-      			<img src="..." class="img-fluid rounded" alt="..." />
+      			<img src="" className="img-fluid rounded" alt="" />
     			</div>
     			<div className="col-md-4">
       			<div className="card-body text-start">
+				  
         			<h5 className="card-title m-1"></h5>
-        			<p className="card-text m-1 text-secondary"><i class="fas fa-map-pin pe-1"></i>Adress</p>
-					<p className="card-text m-1 text-secondary"><i class="fas fa-phone pe-1"></i>Telephone</p>
-					<p className="card-text m-1 text-secondary"><i class="fas fa-envelope pe-1"></i>Adress</p>
+        			<p className="card-text m-1 text-secondary"><i className="fas fa-map-pin pe-1"></i>{store.Contacts.map((iteam) => <li>{iteam.full_name}</li>)}</p>
+					<p className="card-text m-1 text-secondary"><i className="fas fa-phone pe-1"></i>Telephone</p>
+					<p className="card-text m-1 text-secondary"><i className="fas fa-envelope pe-1"></i>Adress</p>
       			</div>
     			</div>
 				<div className="col-md-4 text-end">
@@ -23,4 +34,7 @@ export const Home = () => (
   			</div>
 		</div>
 	</div>
-);
+
+	</>
+ );
+};
