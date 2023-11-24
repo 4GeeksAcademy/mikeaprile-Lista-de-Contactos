@@ -1,6 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			title: "Mi prime titulo",
+			total: 0,
+			hola: true, 
 			demo: [
 				{
 					title: "FIRST",
@@ -12,6 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
+				
 			]
 		},
 		actions: {
