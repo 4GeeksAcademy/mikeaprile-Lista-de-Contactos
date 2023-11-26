@@ -22,7 +22,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-        /**
+             /**
 			 * ¡EDITAR ESTO!
 			 * Esta función es el equivalente a "window.onLoad", sólo se ejecuta una vez en toda la vida de la aplicación.
 			 * deberías hacer tus peticiones ajax o fetch api aquí. No use setState() para guardar datos en el
@@ -30,7 +30,8 @@ const injectContext = PassedComponent => {
 			 *
 			 * state.actions.loadSomeData(); <---- llamando a esta función desde las acciones de flux.js
 			 *
-		**/
+		     **/
+		     state.actions.getContacts();
 		}, []);
 
 		// El valor inicial del context ya no es null, sino el estado actual de este componente,

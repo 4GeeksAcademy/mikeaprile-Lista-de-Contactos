@@ -1,8 +1,4 @@
-button {
-    display: flex;
-    margin-top: 10px;
-    margin-left: 1720px;
-}
-.card {
-    display: flex;
-}
+.color-button {
+    background: rgb(196, 196, 196);
+    border-color: #222529;
+};
