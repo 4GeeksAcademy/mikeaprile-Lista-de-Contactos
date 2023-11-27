@@ -45,8 +45,8 @@ export const UpdateContact = () => {
                     value={phone} onChange={(e) =>{setPhone(e.target.value)}}/>
                 </div>
                 <div className="m-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label">Adress</label>
-                    <input type="text" className="form-control" id="exampleInputAdress" aria-describedby="adress" placeholder="Enter address"
+                    <label htmlFor="exampleInputEmail1" className="form-label">Address</label>
+                    <input type="text" className="form-control" id="exampleInputAddress" aria-describedby="address" placeholder="Enter address"
                     value={address} onChange={(e) =>{setAddress(e.target.value)}}/>
                 </div>
                 <div className="d-grid gap-2">
