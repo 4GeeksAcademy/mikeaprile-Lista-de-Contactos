@@ -4,7 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			baseUrl: 'https://playground.4geeks.com/apis/fake/contact',
 			agenda: 'MikeAprile',
-			user:[]
+			user:[],
+			newUser: {}
 		},
 
 		actions: {

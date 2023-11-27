@@ -7,14 +7,13 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	const handleDelete = (id) => {
-		console.log(id);
 		actions.deleteContact(id)
 	}
 
 		return (
 			<div className="text-center mt-5 m-4">
-					  {store.user.map((item) => {
-						return <div className="row g-0 border rounded m-2">
+					  {store.user.map((item, id) => {
+						return <div key={id} className="row g-0 border rounded m-2">
 								<div className="col-md-4">
 								  <img src="https://m-scs.com/public/storage/users/1657129981.jpeg" className="img-fluid rounded-circle m-1" alt="..." />
 								</div>
@@ -27,7 +26,7 @@ export const Home = () => {
 								  </div>
 								</div>
 								<div className="col-md-4 text-end mt-2">
-									<Link to="/update-contact" className="text-dark"><i className="far fa-edit fa-lg p-2 pe-4"></i></Link>
+									<Link to={"/update-contact/" + item.id}  className="text-dark"><i className="far fa-edit fa-lg p-2 pe-4"></i></Link>
 									<span type="button" onClick={()=>{handleDelete(item.id)}} className="border-0 text-dark bg-white" ><i className="fas fa-trash-alt fa-lg p-2 ps-4 m-3"></i></span>
 								</div>
 								
