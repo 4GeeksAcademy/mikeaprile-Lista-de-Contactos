@@ -6,9 +6,8 @@ import { Context } from "../store/appContext.js";
 export const UpdateContact = () => {
     const { store, actions } = useContext(Context);
     const parametro = useParams()
-    const currentuser = store.user.filter((item) => item.id = parametro.idContact)
-    const user = currentuser[0]
-
+    const currentUser = store.user.filter((item) => item.id = parametro.idContact)
+    const user = currentUser[0]
   
     const [ newName, setnewName ] = useState( user.full_name );
     const [ newAddress, setnewAddress ] = useState( user.address );

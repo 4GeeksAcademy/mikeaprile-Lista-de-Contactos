@@ -26,7 +26,7 @@ export const Home = () => {
 								  </div>
 								</div>
 								<div className="col-md-4 text-end mt-2">
-									<Link to={"/update-contact/" + item.id}  className="text-dark"><i className="far fa-edit fa-lg p-2 pe-4"></i></Link>
+								<Link to={"/update-contact/" + item.id}  className="text-dark"><i className="far fa-edit fa-lg p-2 pe-4"></i></Link>
 									<span type="button" onClick={()=>{handleDelete(item.id)}} className="border-0 text-dark bg-white" ><i className="fas fa-trash-alt fa-lg p-2 ps-4 m-3"></i></span>
 								</div>
 								

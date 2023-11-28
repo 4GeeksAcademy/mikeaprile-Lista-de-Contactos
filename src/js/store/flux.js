@@ -48,6 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log('Error: ', response.status, response.statusText)
 				}
 			},
+			
 			refreshContact: async (contact, id) =>{
 				const url = getStore().baseUrl + '/' + id;
 				const options = {
@@ -66,6 +67,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 		
+			deleteAgenda: async() =>{
+				const url = getStore().baseUrl + '/agenda/' + getStore().agenda;
+				console.log(url);
+        		const options = {
+            		method: 'DELETE',
+        		};
+        		const response = await fetch(url, options);
+				console.log(response);
+        		if (response.ok){
+            		//const data = await response.json();
+					//getActions().getContacts();
+					setStore({user: []})
+				} else {
+           			 console.log('Error: ', response.status, response.statusText)
+        		}
+				
+			},
 			
 			deleteContact: async(id) =>{
 				const url = getStore().baseUrl + '/' + id;
