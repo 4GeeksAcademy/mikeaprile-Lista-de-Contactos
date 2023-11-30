@@ -2,13 +2,14 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrolltotop.js";
-import { Home } from "./views/Home.jsx";
-import { Single } from "./views/single";
+import { Contact } from "./views/Contact.jsx";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/Navbar.jsx";
 import { Footer } from "./component/Footer.jsx";
 import { AddContact } from "./views/AddContact.jsx";
 import { UpdateContact } from "./views/UpdateContact.jsx";
+import { ViewContact } from "./views/ViewContact.jsx";
+import { Home } from "./views/Home.jsx";
 
 //create your first component
 const Layout = () => {
@@ -22,10 +23,11 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Routes>
-						<Route path="/" element={<Home />} />
+						<Route path="/" element={<Home/>} />
+						<Route path="/contact" element={<Contact />} />
 						<Route path="/add-contact" element={<AddContact />} />
-						<Route path="/update-contact/:idContact" element={<UpdateContact />} />
-						<Route path="/single/:theid" element={<Single />} />
+						<Route path="/update-contact/:contactId" element={<UpdateContact />} />
+						<Route path="/contact/:contactId" element={<ViewContact />} />
 						<Route path="*" element={<h1 className="text-center m-2">Not found! </h1>} />
 					</Routes>
 					<Footer />

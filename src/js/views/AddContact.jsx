@@ -21,7 +21,7 @@ export const AddContact = () => {
             agenda_slug: 'MikeAprile'
         };
         actions.AddContact(newContact);
-        navigate('/')
+        navigate('/contact')
     }
 
     return (
@@ -48,7 +48,7 @@ export const AddContact = () => {
                 <div className="d-grid gap-2">
                     <button type="submit" className="btn btn-primary m-4">Save</button>
                 </div>
-                <Link className="m-4 primary" to="/"> or get back to contacts.</Link>
+                <Link className="m-4 primary" to="/contact"> or get back to contacts.</Link>
             </form>
             
         </div>

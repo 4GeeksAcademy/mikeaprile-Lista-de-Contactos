@@ -13,6 +13,9 @@ export const Navbar = () => {
 			<div className="ml-auto">
 				<button type="button" className="btn btn-danger m-2 " onClick={actions.deleteAgenda}> <i className="fas fa-user-times fa-lg pe-2"></i>Delete all contacts</button>
 				
+				<Link to="/contact">
+					<button className="btn btn-success m-2 ">Contact List</button>
+				</Link>
 				<Link to="/add-contact">
 					<button className="btn btn-primary m-2 ">Add new contact</button>
 				</Link>

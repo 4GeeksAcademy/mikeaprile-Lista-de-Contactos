@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 
-			baseUrl: 'https://playground.4geeks.com/apis/fake/contact',
+			baseUrl: 'https://playground.4geeks.com/apis/fake/contact/',
 			agenda: 'MikeAprile',
 			user:[],
 			newUser: {}
@@ -17,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getContacts: async () =>{
-				const url = getStore().baseUrl + '/agenda/' + getStore().agenda;
+				const url = getStore().baseUrl + 'agenda/' + getStore().agenda;
 				const options = {
 					method: 'GET',
 				};
@@ -30,6 +30,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log('Error: ', response.status, response.statusText)
 				}
 			},
+
+			getOneContact: async (id) => {
+				const url = getStore().baseUrl + id;
+				const options = {
+					method: "GET"
+				};
+				const response = await fetch (url, options);
+				if (response.ok) {
+					const data = await response.json();
+					setStore({ newUser: data});
+
+				} else 
+					 console.log("Error:", response.status, response.statusText);
+			},
+
 
 			AddContact: async(newContact) =>{
 				const url = getStore().baseUrl;
@@ -49,26 +64,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			
-			refreshContact: async (contact, id) =>{
-				const url = getStore().baseUrl + '/' + id;
+			EditContact: async (contactId, updatedContact) =>{
+				const url = getStore().baseUrl + contactId;
 				const options = {
 					method: 'PUT',
             		headers: {
                 		"Content-Type": "application/json",
             		},
-            		body: JSON.stringify(contact)
+            		body: JSON.stringify(updatedContact)
 				}
 				const response = await fetch(url, options);
 				if (response.ok){
 					const data = await response.json();
 					getActions().getContacts();
+					console.log(data)
 				} else {
 					console.log('Error: ', response.status, response.statusText)
 				}
 			},
 		
 			deleteAgenda: async() =>{
-				const url = getStore().baseUrl + '/agenda/' + getStore().agenda;
+				const url = getStore().baseUrl + 'agenda/' + getStore().agenda;
 				console.log(url);
         		const options = {
             		method: 'DELETE',
@@ -86,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			
 			deleteContact: async(id) =>{
-				const url = getStore().baseUrl + '/' + id;
+				const url = getStore().baseUrl + id;
         		const options = {
             		method: "DELETE"
         		};
